@@ -1,2 +1,10 @@
-%h1 Blogs#new
-%p Find me in app/views/blogs/new.html.haml
+%h3 mini_blog作成画面
+- if @blog.errors.any?
+  - @blog.errors.full_messages.each do |msg|
+    %ul
+      %li= msg
+= form_with(model: @blog, local: true) do |f|
+  .content_labal
+    = f.label :content
+    = f.text_field :content
+  = f.submit
