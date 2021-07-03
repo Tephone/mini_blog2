@@ -1,7 +1,7 @@
 %h2 全体タイムライン
 - @blogs.each do |blog|
   %p
-    = blog.created_at
+    = l blog.created_at
   %p
     = blog.content
 = link_to 'mini_blog作成', new_blog_path
