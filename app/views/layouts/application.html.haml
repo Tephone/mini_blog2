@@ -13,6 +13,8 @@
     .navbar.navbar-expand-lg
       - if user_signed_in?
         .nav-link
+          =link_to 'マイページ', user_path(current_user)
+        .nav-link
           = link_to 'ログアウト', destroy_user_session_path, method: :delete
       -else
         .nav-link
