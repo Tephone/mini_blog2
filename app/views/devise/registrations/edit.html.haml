@@ -19,29 +19,32 @@
     = f.label :blog_url
     %br/
     = f.text_field :blog_url, autofocus: true, autocomplete: "blog_url"
-  .field
-    = f.label :password
-    %i
-      (#{t('.leave_blank_if_you_don_t_want_to_change_it')})
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em= t('devise.shared.minimum_password_length', count: @minimum_password_length)
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i
-      (#{t('.we_need_your_current_password_to_confirm_your_changes')})
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
+  -# .field
+  -#   = f.label :password
+  -#   %i
+  -#     (#{t('.leave_blank_if_you_don_t_want_to_change_it')})
+  -#   %br/
+  -#   = f.password_field :password, autocomplete: "new-password"
+  -#   - if @minimum_password_length
+  -#     %br/
+  -#     %em= t('devise.shared.minimum_password_length', count: @minimum_password_length)
+  -# .field
+  -#   = f.label :password_confirmation
+  -#   %br/
+  -#   = f.password_field :password_confirmation, autocomplete: "new-password"
+  -# .field
+  -#   = f.label :current_password
+  -#   %i
+  -#     (#{t('.we_need_your_current_password_to_confirm_your_changes')})
+  -#   %br/
+  -#   = f.password_field :current_password, autocomplete: "current-password"
+  %br
   .actions
     = f.submit t('.update')
-%h3= t('.cancel_my_account')
-%p
-  = t('.unhappy')
-  = button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete
+-# %h3= t('.cancel_my_account')
+-# %p
+-#   = t('.unhappy')
+-#   = button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete
+
+%br
 = link_to t('devise.shared.links.back'), :back
