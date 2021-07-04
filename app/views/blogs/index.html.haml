@@ -4,6 +4,6 @@
     = l blog.created_at
   %p
     = blog.content
-= link_to 'mini_blog作成', new_blog_path
-
+  = render 'users/follow_form', user: blog.user
+= link_to 'miniブログ作成', new_blog_path
 = paginate @blogs

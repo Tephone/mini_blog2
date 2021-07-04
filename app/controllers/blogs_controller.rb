@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   def index
-    @blogs = Blog.all.page(params[:page]).per(5)
+    @blogs = Blog.where(user_id: current_user.following_ids).page(params[:page]).per(3)
   end
 
   def new
