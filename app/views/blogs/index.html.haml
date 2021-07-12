@@ -1,0 +1,10 @@
+%h2 全体タイムライン
+- @blogs.each do |blog|
+  %p
+    = l blog.created_at
+  %p
+    = blog.content
+  - if user_signed_in?
+    = render 'users/follow_form', user: blog.user
+= link_to 'miniブログ作成', new_blog_path
+= paginate @blogs

@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title MiniBlog2
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application'
+  %body
+    .navbar.navbar-expand-lg
+      - if user_signed_in?
+        .nav-link
+          =link_to '全体タイムライン', blogs_path
+        .nav-link
+          =link_to 'ユーザー一覧', users_path
+        .nav-link
+          =link_to 'マイページ', user_path(current_user)
+        .nav-link
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+      -else
+        .nav-link
+          =link_to '全体タイムライン', blogs_path
+        .nav-link
+          = link_to 'サインアップ', new_user_registration_path
+        .nav-link
+          = link_to 'ログイン', new_user_session_path
+    = notice
+    = alert
+    .container
+      .jumbotron.m-3
+        = yield
