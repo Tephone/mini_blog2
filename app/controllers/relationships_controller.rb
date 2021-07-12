@@ -7,9 +7,9 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    @record = Relationship.find(params[:id])
-    if @record.destroy
-      redirect_to users_path, notice: "#{@record.followed.name}フォローを解除しました"
+    @relationship = Relationship.find(params[:id])
+    if @relationship.destroy
+      redirect_to users_path, notice: "#{@relationship.followed.name}フォローを解除しました"
     end
   end
 end
